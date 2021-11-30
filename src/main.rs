@@ -4,7 +4,7 @@ unsafe impl Send for MyWrapper {}
 unsafe impl Sync for MyWrapper {}
 
 impl MyWrapper {
-    fn get_slice(&self, len: usize) -> &'static mut [f32] {
+    fn get_slice(&self, len: usize) -> &mut [f32] {
         unsafe { std::slice::from_raw_parts_mut(self.0, len) }
     }
 }
